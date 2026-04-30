@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  .page-header
+    h1 🥗 Cerca un Alimento
+    p Cerca tra milioni di prodotti grazie a OpenFoodFacts
+
+  .search-bar
+    form(method="GET" action="/food/search")
+      input(type="text" name="q" placeholder="Es: mela, pasta, yogurt..." value=query)
+      button.btn(type="submit") Cerca
+
+  if error
+    .alert.alert-error= error
+
+  if foods && foods.length > 0
+    p.results-count Trovati #{foods.length} risultati per "#{query}"
+    .food-grid
+      each food in foods
+        .food-card
+          if food.image
+            img(src=food.image alt=food.name)
+          else
+            .food-no-image 🍽️
+          h3= food.name
+          if food.brand
+            p.brand= food.brand
+          .nutrients
+            span.nut 🔥 #{food.calories} kcal
+            span.nut 🥩 #{food.proteins}g prot
+            span.nut 🍞 #{food.carbs}g carb
+          if food.nutriscore && food.nutriscore !== 'n/d'
+            span.nutriscore(class="score-" + food.nutriscore) Nutri-Score #{food.nutriscore.toUpperCase()}
+          a.btn-small(href="/food/" + food.id) Dettagli
+
+  else if query
+    .empty-state
+      p Nessun risultato per "#{query}". Prova con un altro termine.

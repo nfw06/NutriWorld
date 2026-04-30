@@ -1,0 +1,477 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2d6a4f;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav .logo {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul a {
+  color: white;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+nav ul a:hover { opacity: 0.8; }
+
+nav .btn-register {
+  background: white;
+  color: #2d6a4f !important;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+nav .username { color: #b7e4c7; font-size: 0.9rem; }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: #2d6a4f;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn:hover { background-color: #1b4332; }
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #2d6a4f;
+  color: #2d6a4f !important;
+}
+
+.btn-outline:hover { background: #2d6a4f; color: white !important; }
+
+.btn-small {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background-color: #2d6a4f;
+  color: white !important;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-small:hover { background-color: #1b4332; }
+
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #1b4332;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ===== FEATURES ===== */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-4px); }
+.card-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.card h2 { margin-bottom: 0.6rem; color: #2d6a4f; }
+.card p { color: #666; font-size: 0.95rem; margin-bottom: 1rem; }
+.card a { color: #2d6a4f; font-weight: bold; }
+
+/* ===== CIVIC ===== */
+.civic {
+  background: #1b4332;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.civic h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+.civic p { max-width: 700px; margin: auto; line-height: 1.7; opacity: 0.9; }
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  background: linear-gradient(135deg, #2d6a4f, #1b4332);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.page-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.page-header p { opacity: 0.85; }
+.section-title { text-align: center; padding: 2rem 0 1rem; color: #1b4332; }
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.search-bar form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.search-bar input:focus { outline: none; border-color: #2d6a4f; }
+
+.results-count { text-align: center; color: #666; margin-bottom: 1rem; }
+
+/* ===== FOOD GRID ===== */
+.food-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 2rem 3rem;
+  justify-content: center;
+}
+
+.food-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.food-card img { width: 100%; height: 120px; object-fit: contain; border-radius: 8px; }
+.food-no-image { font-size: 3rem; height: 120px; display: flex; align-items: center; justify-content: center; background: #f0f0f0; border-radius: 8px; }
+.food-card h3 { font-size: 0.95rem; color: #1b4332; }
+.food-card .brand { font-size: 0.8rem; color: #888; }
+
+.nutrients { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.82rem; color: #555; }
+
+/* ===== NUTRISCORE ===== */
+.nutriscore { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.8rem; color: white; }
+.score-a { background: #038141; }
+.score-b { background: #85BB2F; }
+.score-c { background: #FECB02; color: #333; }
+.score-d { background: #EE8100; }
+.score-e { background: #E63E11; }
+
+/* ===== FOOD DETAIL ===== */
+.food-detail { max-width: 800px; margin: 2rem auto; padding: 0 2rem; }
+
+.food-detail-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.food-detail-header img { width: 200px; height: 200px; object-fit: contain; border-radius: 12px; background: #f9f9f9; }
+
+.food-detail-info { flex: 1; }
+.food-detail-info h1 { font-size: 1.8rem; color: #1b4332; margin-bottom: 0.5rem; }
+.food-detail-info .brand { color: #666; margin-bottom: 0.5rem; }
+
+.nutriments-table { margin-bottom: 2rem; }
+.nutriments-table h2 { margin-bottom: 1rem; color: #2d6a4f; }
+.nutriments-table table { width: 100%; border-collapse: collapse; }
+.nutriments-table th, .nutriments-table td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+.nutriments-table th { background: #f0f7f0; color: #2d6a4f; }
+
+.ingredients { margin-bottom: 2rem; }
+.ingredients h2 { margin-bottom: 0.5rem; color: #2d6a4f; }
+.ingredients p { line-height: 1.6; color: #555; font-size: 0.9rem; }
+
+.add-to-diary { background: #f0f7f0; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
+.add-to-diary h2 { margin-bottom: 1rem; color: #2d6a4f; }
+
+/* ===== GLOBAL ===== */
+.global-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.stat-card h3 { font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; }
+.stat-value { font-size: 2rem; font-weight: bold; color: #2d6a4f; }
+
+.countries-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 2rem 3rem;
+  justify-content: center;
+}
+
+.country-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.country-card h3 { color: #1b4332; margin-bottom: 0.8rem; font-size: 1.1rem; }
+.country-data { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; color: #555; margin-bottom: 0.8rem; }
+
+.health-bar { background: #eee; border-radius: 4px; height: 8px; margin-bottom: 0.3rem; }
+.health-fill { background: #2d6a4f; height: 100%; border-radius: 4px; }
+.health-label { font-size: 0.8rem; color: #888; margin-bottom: 0.8rem; display: block; }
+
+.civic-note {
+  background: #1b4332;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.civic-note h2 { margin-bottom: 1rem; }
+.civic-note p { max-width: 700px; margin: auto; line-height: 1.7; opacity: 0.9; }
+
+/* ===== COUNTRY DETAIL ===== */
+.country-detail { max-width: 800px; margin: 2rem auto; padding: 0 2rem; }
+.country-detail h1 { font-size: 2rem; color: #1b4332; margin-bottom: 2rem; }
+
+.country-stats-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.stat-box h3 { font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; }
+.big-number { font-size: 1.8rem; font-weight: bold; color: #2d6a4f; }
+
+.country-bar-chart { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.country-bar-chart h2 { margin-bottom: 1.5rem; color: #2d6a4f; }
+
+.bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.bar-label { width: 150px; font-size: 0.9rem; color: #555; }
+.bar-outer { flex: 1; background: #eee; border-radius: 4px; height: 20px; }
+.bar-inner { background: #2d6a4f; height: 100%; border-radius: 4px; transition: width 0.5s; }
+.bar-warning { background: #f4a261; }
+.bar-danger { background: #e63e11; }
+.bar-value { width: 80px; font-size: 0.85rem; color: #555; }
+
+/* ===== DIARY ===== */
+.diary-totals { padding: 2rem; }
+.diary-totals h2 { color: #1b4332; margin-bottom: 1rem; }
+
+.totals-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.total-box {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 130px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.total-label { font-size: 0.85rem; color: #666; }
+.total-value { font-size: 1.5rem; font-weight: bold; color: #2d6a4f; }
+
+.diary-add { padding: 0 2rem 2rem; }
+.diary-add h2 { color: #1b4332; margin-bottom: 1rem; }
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  padding: 0.7rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 120px;
+}
+
+.form-row input:focus { outline: none; border-color: #2d6a4f; }
+
+.diary-entries { padding: 0 2rem 3rem; }
+.diary-entries h2 { color: #1b4332; margin-bottom: 1rem; }
+
+.diary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.diary-table th { background: #2d6a4f; color: white; padding: 0.8rem 1rem; text-align: left; }
+.diary-table td { padding: 0.7rem 1rem; border-bottom: 1px solid #eee; }
+.diary-table tr:last-child td { border-bottom: none; }
+.diary-table tr:hover td { background: #f9f9f9; }
+
+/* ===== AUTH ===== */
+.auth-container {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.auth-container h1 { color: #1b4332; margin-bottom: 1.5rem; text-align: center; }
+
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; margin-bottom: 0.4rem; font-weight: bold; color: #555; }
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group input:focus { outline: none; border-color: #2d6a4f; }
+
+.auth-container .btn { width: 100%; margin-top: 0.5rem; text-align: center; }
+.auth-link { text-align: center; margin-top: 1.2rem; font-size: 0.9rem; color: #666; }
+.auth-link a { color: #2d6a4f; font-weight: bold; }
+
+/* ===== ALERTS ===== */
+.alert { padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.alert-error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* ===== EMPTY STATE ===== */
+.empty-state { text-align: center; padding: 3rem; color: #888; }
+.empty-state p { margin-bottom: 1rem; }
+
+/* ===== 404 ===== */
+.error-page { text-align: center; padding: 5rem 2rem; }
+.error-page h1 { font-size: 5rem; color: #2d6a4f; }
+.error-page p { font-size: 1.2rem; margin-bottom: 2rem; color: #666; }
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #1b4332;
+  color: white;
+}
+
+footer .footer-sub { font-size: 0.85rem; opacity: 0.7; margin-top: 0.3rem; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  nav { padding: 1rem; }
+  .food-detail-header { flex-direction: column; }
+  .food-detail-header img { width: 100%; }
+  .bar-label { width: 100px; font-size: 0.8rem; }
+  .form-row { flex-direction: column; }
+  .diary-table { font-size: 0.85rem; }
+  .country-stats-grid { flex-direction: column; }
+}

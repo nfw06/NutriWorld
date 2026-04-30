@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .auth-container
+    h1 Accedi
+    if error
+      .alert.alert-error= error
+    form(method="POST" action="/auth/login")
+      .form-group
+        label Username
+        input(type="text" name="username" required placeholder="Il tuo username")
+      .form-group
+        label Password
+        input(type="password" name="password" required placeholder="La tua password")
+      button.btn(type="submit") Accedi
+    p.auth-link Non hai un account? 
+      a(href="/auth/register") Registrati

@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+  .country-detail
+    h1 🌍 #{country.country}
+
+    .country-stats-grid
+      .stat-box
+        h3 📅 Aspettativa di vita
+        .big-number #{country.lifeExpectancy} anni
+      .stat-box
+        h3 ⚖️ Tasso di obesità
+        .big-number #{country.obesityRate}%
+      .stat-box
+        h3 🌾 Denutrizione
+        .big-number #{country.undernourishment}%
+      .stat-box
+        h3 🏥 Indice sanitario
+        .big-number #{country.healthcareIndex}/100
+
+    .country-bar-chart
+      h2 Confronto indicatori
+      .bar-row
+        span.bar-label Aspettativa di vita
+        .bar-outer
+          .bar-inner(style="width: " + (country.lifeExpectancy / 90 * 100) + "%")
+        span.bar-value #{country.lifeExpectancy} anni
+      .bar-row
+        span.bar-label Indice sanitario
+        .bar-outer
+          .bar-inner(style="width: " + country.healthcareIndex + "%")
+        span.bar-value #{country.healthcareIndex}/100
+      .bar-row
+        span.bar-label Obesità
+        .bar-outer
+          .bar-inner.bar-warning(style="width: " + (country.obesityRate / 40 * 100) + "%")
+        span.bar-value #{country.obesityRate}%
+      .bar-row
+        span.bar-label Denutrizione
+        .bar-outer
+          .bar-inner.bar-danger(style="width: " + (country.undernourishment / 25 * 100) + "%")
+        span.bar-value #{country.undernourishment}%
+
+    a.btn.btn-outline(href="/global") ← Torna alla mappa

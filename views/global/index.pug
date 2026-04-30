@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  .page-header
+    h1 🌍 Salute Globale
+    p Dati sulla salute nel mondo — fonte: OMS / Our World in Data
+
+  .global-stats
+    .stat-card
+      h3 🌐 Paesi analizzati
+      .stat-value= stats.totalCountries
+    .stat-card
+      h3 📅 Aspettativa di vita media
+      .stat-value #{stats.avgLifeExpectancy} anni
+    .stat-card
+      h3 ⚖️ Obesità media
+      .stat-value #{stats.avgObesityRate}%
+    .stat-card
+      h3 🌾 Denutrizione media
+      .stat-value #{stats.avgUndernourishment}%
+
+  h2.section-title Dati per Paese
+  .countries-grid
+    each country in countries
+      .country-card
+        h3= country.country
+        .country-data
+          span 📅 #{country.lifeExpectancy} anni
+          span ⚖️ #{country.obesityRate}% obesità
+          span 🌾 #{country.undernourishment}% denutrizione
+        .health-bar
+          .health-fill(style="width: " + country.healthcareIndex + "%")
+        p.health-label Indice sanitario: #{country.healthcareIndex}/100
+        a.btn-small(href="/global/" + country.code) Dettagli
+
+  .civic-note
+    h2 💚 Perché questi dati sono importanti?
+    p Le disuguaglianze sanitarie nel mondo riflettono disuguaglianze economiche e sociali profonde. Paesi come l'Etiopia e la Nigeria hanno un'aspettativa di vita di oltre 20 anni inferiore al Giappone. La responsabilità globale e la solidarietà internazionale sono valori fondamentali per affrontare queste sfide.

@@ -1,0 +1,63 @@
+extends ../layout
+
+block content
+  .page-header
+    h1 📔 Il mio Diario
+    p Ciao #{user.username}! Ecco il tuo registro alimentare.
+
+  .diary-totals
+    h2 Totale di oggi
+    .totals-grid
+      .total-box
+        span.total-label 🔥 Calorie
+        span.total-value #{totals.calories.toFixed(0)} kcal
+      .total-box
+        span.total-label 🥩 Proteine
+        span.total-value #{totals.proteins.toFixed(1)} g
+      .total-box
+        span.total-label 🍞 Carboidrati
+        span.total-value #{totals.carbs.toFixed(1)} g
+      .total-box
+        span.total-label 🧈 Grassi
+        span.total-value #{totals.fats.toFixed(1)} g
+
+  .diary-add
+    h2 Aggiungi manualmente
+    form(method="POST" action="/diary/add")
+      .form-row
+        input(type="text" name="name" placeholder="Nome alimento" required)
+        input(type="number" name="calories" placeholder="Kcal" step="0.1" min="0")
+        input(type="number" name="proteins" placeholder="Proteine (g)" step="0.1" min="0")
+        input(type="number" name="carbs" placeholder="Carb (g)" step="0.1" min="0")
+        input(type="number" name="fats" placeholder="Grassi (g)" step="0.1" min="0")
+        button.btn(type="submit") Aggiungi
+
+  .diary-entries
+    h2 Voci nel diario
+    if entries.length === 0
+      .empty-state
+        p Nessuna voce nel diario. Cerca un alimento e aggiungilo!
+        a.btn(href="/food") Cerca Alimento
+    else
+      table.diary-table
+        thead
+          tr
+            th Alimento
+            th 🔥 Kcal
+            th 🥩 Prot
+            th 🍞 Carb
+            th 🧈 Grassi
+            th Data
+            th
+        tbody
+          each entry in entries
+            tr
+              td= entry.foodName
+              td= entry.calories.toFixed(0)
+              td= entry.proteins.toFixed(1)
+              td= entry.carbs.toFixed(1)
+              td= entry.fats.toFixed(1)
+              td= new Date(entry.date).toLocaleDateString('it-IT')
+              td
+                form(method="POST" action="/diary/delete/" + entry.id)
+                  button.btn-delete(type="submit") 🗑️

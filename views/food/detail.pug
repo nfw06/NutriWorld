@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+  .food-detail
+    .food-detail-header
+      if food.image
+        img(src=food.image alt=food.name)
+      .food-detail-info
+        h1= food.name
+        if food.brand
+          p.brand 🏷️ #{food.brand}
+        if food.nutriscore && food.nutriscore !== 'n/d'
+          span.nutriscore(class="score-" + food.nutriscore) Nutri-Score #{food.nutriscore.toUpperCase()}
+
+    .nutriments-table
+      h2 Valori Nutrizionali (per 100g)
+      table
+        tr
+          th Nutriente
+          th Valore
+        tr
+          td 🔥 Calorie
+          td #{food.calories} kcal
+        tr
+          td 🥩 Proteine
+          td #{food.proteins} g
+        tr
+          td 🍞 Carboidrati
+          td #{food.carbs} g
+        tr
+          td 🍬 Zuccheri
+          td #{food.sugar} g
+        tr
+          td 🧈 Grassi
+          td #{food.fats} g
+        tr
+          td 🌾 Fibre
+          td #{food.fiber} g
+        tr
+          td 🧂 Sale
+          td #{food.salt} g
+
+    if food.ingredients
+      .ingredients
+        h2 Ingredienti
+        p= food.ingredients
+
+    if user
+      .add-to-diary
+        h2 📔 Aggiungi al diario
+        form(method="POST" action="/diary/add")
+          input(type="hidden" name="name" value=food.name)
+          input(type="hidden" name="calories" value=food.calories)
+          input(type="hidden" name="proteins" value=food.proteins)
+          input(type="hidden" name="carbs" value=food.carbs)
+          input(type="hidden" name="fats" value=food.fats)
+          button.btn(type="submit") Aggiungi al Diario
+
+    a.btn.btn-outline(href="/food") ← Torna alla ricerca

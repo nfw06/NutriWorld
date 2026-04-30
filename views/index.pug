@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  section.hero
+    h1 Benvenuto su NutriWorld 🌿
+    p Esplora il mondo dell'alimentazione consapevole e scopri come la salute varia nel mondo.
+    .hero-buttons
+      a.btn(href="/food") 🥗 Cerca un Alimento
+      a.btn.btn-outline(href="/global") 🌍 Salute Globale
+
+  section.features
+    .card
+      .card-icon 🥗
+      h2 Alimenti
+      p Cerca qualsiasi alimento e scopri i suoi valori nutrizionali grazie a OpenFoodFacts.
+      a(href="/food") Esplora →
+    .card
+      .card-icon 🌍
+      h2 Salute Globale
+      p Esplora dati reali sulla salute nel mondo: malnutrizione, aspettativa di vita e molto altro.
+      a(href="/global") Esplora →
+    .card
+      .card-icon 📔
+      h2 Il mio Diario
+      p Tieni traccia della tua alimentazione quotidiana con un diario personale.
+      if user
+        a(href="/diary") Apri →
+      else
+        a(href="/auth/login") Accedi per usarlo →
+
+  section.civic
+    h2 💚 Il nostro impegno civico
+    p NutriWorld nasce per sensibilizzare su due grandi temi: l'importanza di una corretta alimentazione e le disuguaglianze sanitarie nel mondo. Ogni dato che esplori racconta una storia di responsabilità, solidarietà e consapevolezza globale.

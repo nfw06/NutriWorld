@@ -1,0 +1,30 @@
+doctype html
+html(lang="it")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title + " | NutriWorld"
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    header
+      nav
+        a.logo(href="/") 🌿 NutriWorld
+        ul
+          li: a(href="/food") Alimenti
+          li: a(href="/global") Salute Globale
+          if user
+            li: a(href="/diary") Il mio Diario
+            li.username 👤 #{user.username}
+            li: a(href="/auth/logout") Esci
+          else
+            li: a(href="/auth/login") Accedi
+            li: a.btn-register(href="/auth/register") Registrati
+
+    main
+      block content
+
+    footer
+      p © 2026 NutriWorld — Educazione Civica
+      p.footer-sub Progetto scolastico su Salute e Benessere
+
+    script(src="/js/main.js")
